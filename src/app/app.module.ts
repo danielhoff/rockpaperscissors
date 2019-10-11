@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
 import { PlayerReducer } from '../store/reducers/player.reducer';
+import { GameLogicReducer } from '../store/reducers/game-logic.reducer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { GameStartComponent } from './game-start/game-start.component';
 import { GameMainComponent } from './game-main/game-main.component';
 import { GameResultsComponent } from './game-results/game-results.component';
 import { PlayerFormComponent } from './game-start/player-form/player-form.component';
+import { GameLogicComponent } from './game-main/game-logic/game-logic.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,17 @@ import { PlayerFormComponent } from './game-start/player-form/player-form.compon
     GameStartComponent,
     GameMainComponent,
     GameResultsComponent,
-    PlayerFormComponent
+    PlayerFormComponent,
+    GameLogicComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ name: PlayerReducer }),
+    StoreModule.forRoot({
+      name: PlayerReducer,
+      gameLogic: GameLogicReducer
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
