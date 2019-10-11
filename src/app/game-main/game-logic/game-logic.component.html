@@ -1,1 +1,22 @@
 <p>game-logic works!</p>
+
+<div *ngIf="gameLogic | async as l">
+  <h2>Round {{l.round}}</h2>
+
+  <p>Player score: {{l.playerScore}}</p>
+  <p>Computer score: {{l.compScore}}</p>
+
+  <p>Choose:</p>
+  <button (click)="submitScore(0)">Rock</button>
+  <button (click)="submitScore(1)">Paper</button>
+  <button (click)="submitScore(2)">Scissors</button>
+
+
+  <p>You chose {{playerChoice}}</p>
+  <p>The computer chose {{computerChoice}}</p>
+
+
+  <p>Debug</p>
+  <p>{{l.playerChoices}}</p>
+  <p>{{l.compChoices}}</p>
+</div>

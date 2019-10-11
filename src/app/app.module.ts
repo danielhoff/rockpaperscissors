@@ -28,7 +28,7 @@ import { GameLogicComponent } from './game-main/game-logic/game-logic.component'
     AppRoutingModule,
     FormsModule,
     StoreModule.forRoot({
-      name: PlayerReducer,
+      player : PlayerReducer,
       gameLogic: GameLogicReducer
     }),
   ],

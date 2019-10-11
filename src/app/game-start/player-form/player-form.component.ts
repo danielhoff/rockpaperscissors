@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-
+import { Observable } from 'rxjs';
 
 import { Player } from '../../../store/models/player.model';
 import * as PlayerActions from '../../../store/actions/player.actions';
-import { Observable } from 'rxjs';
+
 
 interface PlayerFormState {
   form: Player;
@@ -21,7 +21,7 @@ export class PlayerFormComponent {
   name: string;
 
   constructor(private store: Store<PlayerFormState>) {
-    this.form = this.store.select('name');
+    this.form = this.store.select('player');
   }
 
   editName() {

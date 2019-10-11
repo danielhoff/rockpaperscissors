@@ -13,15 +13,15 @@ export class PlayerSubmit implements Action {
 
 }
 
-export class PlayerScore implements Action {
-  readonly type = PLAYER_SCORE;
-}
-
 export class CompSubmit implements Action {
   readonly type = COMP_SUBMIT;
 
   constructor( public payload: number ) {}
 
+}
+
+export class PlayerScore implements Action {
+  readonly type = PLAYER_SCORE;
 }
 
 export class CompScore implements Action {
