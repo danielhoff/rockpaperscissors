@@ -4,4 +4,5 @@ export interface GameLogic {
   compScore: number;
   playerChoices: Array<number>;
   compChoices: Array<number>;
+  results: Array<string>;
 }

@@ -8,7 +8,8 @@ const defaultState: GameLogic = {
   playerScore: 0,
   compScore: 0,
   playerChoices: [],
-  compChoices: []
+  compChoices: [],
+  results: [],
 };
 
 const newState = (state, newData) => {
@@ -28,15 +29,19 @@ export function GameLogicReducer(state: GameLogic = defaultState, action: Action
       break;
 
     case GameLogicActions.PLAYER_SCORE:
-      return (newState(state, {round: state.playerScore++}));
+      return (newState(state, {playerScore: state.playerScore++}));
       break;
 
     case GameLogicActions.COMP_SCORE:
-      return (newState(state, {round: state.compScore++}));
+      return (newState(state, {compScore: state.compScore++}));
       break;
 
     case GameLogicActions.NEXT_ROUND:
       return (newState(state, {round: state.round++}));
+      break;
+
+    case GameLogicActions.UPDATE_RESULT:
+      return newState(state, { results: [...state.compChoices, action.payload]} );
       break;
 
     default:

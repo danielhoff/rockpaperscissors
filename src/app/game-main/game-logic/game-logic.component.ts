@@ -20,6 +20,7 @@ export class GameLogicComponent implements OnInit {
   gameLogic: Observable<GameLogic>;
   computerChoice: string;
   playerChoice: string;
+  outcome: string;
   RPS: Array<string>;
 
   constructor(private store: Store<GameLogicState>) {
@@ -28,16 +29,29 @@ export class GameLogicComponent implements OnInit {
 
   submitScore(choice) {
     this.playerChoice = this.RPS[choice];
-    this.computerChoice = this.computerSelect();
+
+    const computerSelection = Math.floor(Math.random() * Math.floor(3));
+    this.computerChoice = this.computerSelect(computerSelection);
 
     this.store.dispatch(new GameLogicActions.PlayerSubmit(choice));
+
+    this.outcome = this.determineWinner(choice, computerSelection);
   }
 
-  computerSelect() {
-    const computerSelection = Math.floor(Math.random() * Math.floor(3));
+  computerSelect(choice) {
+    this.store.dispatch(new GameLogicActions.CompSubmit(choice));
+    return this.RPS[choice];
+  }
 
-    this.store.dispatch(new GameLogicActions.CompSubmit(computerSelection));
-    return this.RPS[computerSelection];
+  determineWinner(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+      return 'draw';
+    } else if ((playerChoice - computerChoice + 3) % 3 === 1) {
+      return 'win';
+    } else {
+      return 'loss';
+    }
+
   }
 
   ngOnInit() {

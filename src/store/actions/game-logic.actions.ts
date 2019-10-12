@@ -5,6 +5,7 @@ export const COMP_SUBMIT = '[GameLogic] CompSubmit';
 export const PLAYER_SCORE = '[GameLogic] PlayerScore';
 export const COMP_SCORE = '[GameLogic] CompScore';
 export const NEXT_ROUND = '[GameLogic] NextRound';
+export const UPDATE_RESULT = '[GameLogic] UpdateResult';
 
 export class PlayerSubmit implements Action {
   readonly type = PLAYER_SUBMIT;
@@ -32,9 +33,17 @@ export class NextRound implements Action {
   readonly type = NEXT_ROUND;
 }
 
+export class UpdateResult implements Action {
+  readonly type = UPDATE_RESULT;
+
+  constructor( public payload: string ) {}
+
+}
+
 export type All
   = PlayerSubmit
   | CompSubmit
   | PlayerScore
   | CompScore
-  | NextRound;
+  | NextRound
+  | UpdateResult;
