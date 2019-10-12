@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
-import { PlayerReducer } from '../store/reducers/player.reducer';
 import { GameLogicReducer } from '../store/reducers/game-logic.reducer';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +29,6 @@ import { ResultsMainComponent } from './game-results/results-main/results-main.c
     AppRoutingModule,
     FormsModule,
     StoreModule.forRoot({
-      player : PlayerReducer,
       gameLogic: GameLogicReducer
     }),
   ],
