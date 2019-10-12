@@ -22,14 +22,14 @@ export class GameLogicComponent implements OnInit {
   playerChoice: string;
   outcome: string;
   RPS: Array<string>;
-  disabled: boolean;
+  disabledToggle: boolean;
 
   constructor(private store: Store<GameLogicState>) {
     this.gameLogic = this.store.select('gameLogic');
   }
 
   submitScore(choice) {
-    this.disabled = true;
+    this.disabledToggle = true;
     this.playerChoice = this.RPS[choice];
 
     const computerSelection = Math.floor(Math.random() * Math.floor(3));
@@ -61,7 +61,7 @@ export class GameLogicComponent implements OnInit {
   }
 
   nextRound() {
-    this.disabled = false;
+    this.disabledToggle = false;
     this.outcome = '';
     this.playerChoice = '';
     this.computerChoice = '';
