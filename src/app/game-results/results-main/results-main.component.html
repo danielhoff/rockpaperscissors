@@ -1,5 +1,7 @@
 <p>results-main works!</p>
 <div *ngIf="gameLogic | async as l">
-
   {{l.round}}
+  <div *ngFor="let choice of l.playerChoices; let i = index">
+    {{i}}
+  </div>
 </div>
