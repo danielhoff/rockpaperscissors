@@ -9,7 +9,6 @@ const defaultState: GameLogic = {
   compScore: 0,
   playerChoices: [],
   compChoices: [],
-  roundScore: [],
   results: [],
 };
 
