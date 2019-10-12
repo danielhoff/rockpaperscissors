@@ -60,6 +60,14 @@ export class GameLogicComponent implements OnInit {
 
   }
 
+  nextRound() {
+    this.disabled = false;
+    this.outcome = '';
+    this.playerChoice = '';
+    this.computerChoice = '';
+    this.store.dispatch(new GameLogicActions.NextRound());
+  }
+
   ngOnInit() {
     this.RPS = ['rock', 'paper', 'scissors'];
   }
