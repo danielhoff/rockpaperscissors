@@ -7,9 +7,9 @@
   <p>Computer score: {{l.compScore}}</p>
 
   <p>Choose:</p>
-  <button (click)="submitScore(0)">Rock</button>
-  <button (click)="submitScore(1)">Paper</button>
-  <button (click)="submitScore(2)">Scissors</button>
+  <button [ngClass]="{'disabled': disabled}" (click)="submitScore(0)">Rock</button>
+  <button [ngClass]="{'disabled': disabled}" (click)="submitScore(1)">Paper</button>
+  <button [ngClass]="{'disabled': disabled}" (click)="submitScore(2)">Scissors</button>
 
 
   <p>You chose {{playerChoice}}</p>
