@@ -10,14 +10,14 @@ export const UPDATE_RESULT = '[GameLogic] UpdateResult';
 export class PlayerSubmit implements Action {
   readonly type = PLAYER_SUBMIT;
 
-  constructor( public payload: number ) {}
+  constructor( public payload: string ) {}
 
 }
 
 export class CompSubmit implements Action {
   readonly type = COMP_SUBMIT;
 
-  constructor( public payload: number ) {}
+  constructor( public payload: string ) {}
 
 }
 

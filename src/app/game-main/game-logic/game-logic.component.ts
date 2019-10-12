@@ -33,22 +33,17 @@ export class GameLogicComponent implements OnInit {
     this.playerChoice = this.RPS[choice];
 
     const computerSelection = Math.floor(Math.random() * Math.floor(3));
-    this.computerChoice = this.computerSelect(computerSelection);
+    this.computerChoice = this.RPS[computerSelection];
 
-    this.store.dispatch(new GameLogicActions.PlayerSubmit(choice));
+    this.store.dispatch(new GameLogicActions.PlayerSubmit(this.playerChoice));
+    this.store.dispatch(new GameLogicActions.CompSubmit(this.computerChoice));
 
     this.outcome = this.determineWinner(choice, computerSelection);
-  }
 
-  computerSelect(choice) {
-    this.store.dispatch(new GameLogicActions.CompSubmit(choice));
-    return this.RPS[choice];
   }
 
   determineWinner(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
-      this.store.dispatch(new GameLogicActions.PlayerScore());
-      this.store.dispatch(new GameLogicActions.CompScore());
       this.store.dispatch(new GameLogicActions.UpdateResult('draw'));
       return 'draw';
     } else if ((playerChoice - computerChoice + 3) % 3 === 1) {
