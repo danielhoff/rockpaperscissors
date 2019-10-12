@@ -29,15 +29,16 @@ export function GameLogicReducer(state: GameLogic = defaultState, action: Action
       break;
 
     case GameLogicActions.PLAYER_SCORE:
-      return (newState(state, {playerScore: state.playerScore++}));
+      console.log(state.playerScore);
+      return (newState(state, {playerScore: state.playerScore + 1}));
       break;
 
     case GameLogicActions.COMP_SCORE:
-      return (newState(state, {compScore: state.compScore++}));
+      return (newState(state, {compScore: state.compScore + 1}));
       break;
 
     case GameLogicActions.NEXT_ROUND:
-      return (newState(state, {round: state.round++}));
+      return (newState(state, {round: state.round + 1}));
       break;
 
     case GameLogicActions.UPDATE_RESULT:

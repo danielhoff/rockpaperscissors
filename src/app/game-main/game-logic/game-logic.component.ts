@@ -45,10 +45,14 @@ export class GameLogicComponent implements OnInit {
 
   determineWinner(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
+      this.store.dispatch(new GameLogicActions.PlayerScore());
+      this.store.dispatch(new GameLogicActions.CompScore());
       return 'draw';
     } else if ((playerChoice - computerChoice + 3) % 3 === 1) {
+      this.store.dispatch(new GameLogicActions.PlayerScore());
       return 'win';
     } else {
+      this.store.dispatch(new GameLogicActions.CompScore());
       return 'loss';
     }
 
