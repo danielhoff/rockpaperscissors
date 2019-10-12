@@ -1,4 +1,5 @@
 export interface GameLogic {
+  playerName: string;
   round: number;
   playerScore: number;
   compScore: number;

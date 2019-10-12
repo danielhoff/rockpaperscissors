@@ -4,6 +4,7 @@ import { GameLogic } from '../models/game-logic.model';
 export  type Action = GameLogicActions.All;
 
 const defaultState: GameLogic = {
+  playerName: 'John Doe',
   round: 1,
   playerScore: 0,
   compScore: 0,
@@ -20,6 +21,11 @@ export function GameLogicReducer(state: GameLogic = defaultState, action: Action
   console.log(action.type, state);
 
   switch (action.type) {
+
+    case GameLogicActions.PLAYER_NAME:
+      return newState(state, { playerName: action.payload} );
+      break;
+
     case GameLogicActions.PLAYER_SUBMIT:
       return newState(state, { playerChoices: [...state.playerChoices, action.payload]} );
       break;

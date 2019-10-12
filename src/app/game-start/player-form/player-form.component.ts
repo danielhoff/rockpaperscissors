@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Player } from '../../../store/models/player.model';
-import * as PlayerActions from '../../../store/actions/player.actions';
+import { GameLogic } from '../../../store/models/game-logic.model';
+import * as GameLogicActions from '../../../store/actions/game-logic.actions';
 
 
-interface PlayerFormState {
-  form: Player;
+interface GameLogicState {
+  gameLogic: GameLogic;
 }
 
 @Component({
@@ -17,16 +17,15 @@ interface PlayerFormState {
 })
 export class PlayerFormComponent {
 
-  form: Observable<Player>;
+  gameLogic: Observable<GameLogic>;
   name: string;
 
-  constructor(private store: Store<PlayerFormState>) {
-    this.form = this.store.select('player');
+  constructor(private store: Store<GameLogicState>) {
+    this.gameLogic = this.store.select('gameLogic');
   }
 
   editName() {
-    console.log(this.name);
-    this.store.dispatch(new PlayerActions.EditName(this.name));
+    this.store.dispatch(new GameLogicActions.PlayerName(this.name));
   }
 
 }

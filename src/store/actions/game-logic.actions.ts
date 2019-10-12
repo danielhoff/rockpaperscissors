@@ -1,11 +1,19 @@
 import { Action } from '@ngrx/store';
 
+export const PLAYER_NAME = '[GameLogic] PlayerName';
 export const PLAYER_SUBMIT = '[GameLogic] PlayerSubmit';
 export const COMP_SUBMIT = '[GameLogic] CompSubmit';
 export const PLAYER_SCORE = '[GameLogic] PlayerScore';
 export const COMP_SCORE = '[GameLogic] CompScore';
 export const NEXT_ROUND = '[GameLogic] NextRound';
 export const UPDATE_RESULT = '[GameLogic] UpdateResult';
+
+export class PlayerName implements Action {
+  readonly type = PLAYER_NAME;
+
+  constructor( public payload: string ) {}
+
+}
 
 export class PlayerSubmit implements Action {
   readonly type = PLAYER_SUBMIT;
@@ -41,7 +49,8 @@ export class UpdateResult implements Action {
 }
 
 export type All
-  = PlayerSubmit
+  = PlayerName
+  |PlayerSubmit
   | CompSubmit
   | PlayerScore
   | CompScore
