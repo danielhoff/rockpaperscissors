@@ -13,6 +13,7 @@ import { GameMainComponent } from './game-main/game-main.component';
 import { GameResultsComponent } from './game-results/game-results.component';
 import { PlayerFormComponent } from './game-start/player-form/player-form.component';
 import { GameLogicComponent } from './game-main/game-logic/game-logic.component';
+import { ResultsMainComponent } from './game-results/results-main/results-main.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GameLogicComponent } from './game-main/game-logic/game-logic.component'
     GameMainComponent,
     GameResultsComponent,
     PlayerFormComponent,
-    GameLogicComponent
+    GameLogicComponent,
+    ResultsMainComponent
   ],
   imports: [
     BrowserModule,

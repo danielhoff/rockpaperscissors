@@ -18,8 +18,7 @@
   <p>This round was a {{outcome}}</p>
 
   <div *ngIf="l.round === 10; else nextRoundBlock">
-    <button>See results</button>
-    
+    <button routerLink="/results" routerLinkActive="active">See results</button>
   </div>
 
   <ng-template #nextRoundBlock>
