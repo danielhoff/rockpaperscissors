@@ -43,3 +43,22 @@ div.flex {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
+@media (max-width: 960px) {
+  div.flex {
+    flex-wrap: wrap;
+
+    .player, .computer {
+      flex-basis: 50%;
+    }
+
+    .computer {
+      order: 2;
+    }
+
+    .result {
+      flex-basis: 100%;
+      order: 3;
+    }
+  }
+}
