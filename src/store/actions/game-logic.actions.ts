@@ -1,5 +1,7 @@
 import { Action } from '@ngrx/store';
 
+// list of actions for the game logic
+
 export const PLAYER_NAME = '[GameLogic] PlayerName';
 export const PLAYER_SUBMIT = '[GameLogic] PlayerSubmit';
 export const COMP_SUBMIT = '[GameLogic] CompSubmit';

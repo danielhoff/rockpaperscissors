@@ -1,5 +1,5 @@
 <div *ngIf="gameLogic | async as l">
-
+  <!-- logic to determine the overall outcome -->
   <div *ngIf="l.playerScore > l.compScore; else determineWinnerBlock">
     <h2>Congratulations {{l.playerName}}! You Win</h2>
   </div>
@@ -14,8 +14,10 @@
     <h2>Unlucky {{l.playerName}}, You drew!</h2>
   </ng-template>
   
+  <!-- display overall score -->
   <h3>{{l.playerScore}} - {{l.compScore}}</h3>
 
+  <!-- loop through the player choices (as there will always be the amount we need, in this case 10) -->
   <div *ngFor="let choice of l.playerChoices; let i = index">
     <p>Round {{i + 1}}</p>
     <div class="flex">

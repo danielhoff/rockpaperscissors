@@ -2,7 +2,10 @@
 <div *ngIf="gameLogic | async as l">
   <p>Please enter your name to begin</p>
 
+  <!-- inout for changing the players name -->
   <input placeholder="Name" [(ngModel)]="name">
+
+  <!-- button to submit the players name and navigate  -->
   <div (click)="editName()" class="btn">
     <p>Play game!</p>
   </div>

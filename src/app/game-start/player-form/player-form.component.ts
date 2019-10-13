@@ -25,8 +25,10 @@ export class PlayerFormComponent implements OnInit {
     this.gameLogic = this.store.select('gameLogic');
   }
 
-  editName() {
+  editName() { // function to update the player name
     this.store.dispatch(new GameLogicActions.PlayerName(this.name));
+
+    // navigate to the main game page
     this.router.navigateByUrl('/game');
   }
 

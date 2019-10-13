@@ -2,6 +2,7 @@
   <h2>Overall score: {{l.playerScore}} - {{l.compScore}}</h2>
   <h3>Round {{l.round}}</h3>
 
+  <!-- selection part -->
   <div [ngClass]="{'disabled': disabledToggle}">
     <p>Choose:</p>
     <div class="rps" (click)="submitScore(0)">
@@ -15,6 +16,7 @@
     </div>
   </div>
 
+  <!-- round results part -->
   <div [ngClass]="{'disabled': !disabledToggle}">
     <p>You chose {{playerChoice}}</p>
     <div class="rps">
