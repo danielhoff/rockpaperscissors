@@ -1,35 +1,43 @@
-<p>game-logic works!</p>
-
 <div *ngIf="gameLogic | async as l">
-  <h2>Round {{l.round}}</h2>
+  <h2>Overall score: {{l.playerScore}} - {{l.compScore}}</h2>
+  <h3>Round {{l.round}}</h3>
 
-  <p>Player score: {{l.playerScore}}</p>
-  <p>Computer score: {{l.compScore}}</p>
-
-  <p>Choose:</p>
-  <button [ngClass]="{'disabled': disabledToggle}" (click)="submitScore(0)">Rock</button>
-  <button [ngClass]="{'disabled': disabledToggle}" (click)="submitScore(1)">Paper</button>
-  <button [ngClass]="{'disabled': disabledToggle}" (click)="submitScore(2)">Scissors</button>
-
-
-  <p>You chose {{playerChoice}}</p>
-  <p>The computer chose {{computerChoice}}</p>
-
-  <p>This round was a {{outcome}}</p>
-
-  <div *ngIf="l.round === 10; else nextRoundBlock">
-    <button routerLink="/results" routerLinkActive="active">See results</button>
+  <div [ngClass]="{'disabled': disabledToggle}">
+    <p>Choose:</p>
+    <div class="rps" (click)="submitScore(0)">
+      <div class="icon rock"></div>
+    </div>
+    <div class="rps" (click)="submitScore(1)">
+        <div class="icon paper"></div>
+    </div>
+    <div class="rps" (click)="submitScore(2)">
+        <div class="icon scissors"></div>
+    </div>
   </div>
 
-  <ng-template #nextRoundBlock>
-      <button [ngClass]="{'disabled': !disabledToggle}" (click)="nextRound()">Next round</button>
-  </ng-template>
+  <div [ngClass]="{'disabled': !disabledToggle}">
+    <p>You chose {{playerChoice}}</p>
+    <div class="rps">
+        <div [ngClass]="'icon ' +playerChoice "></div>
+      </div>
+    <p>The computer chose: {{computerChoice}}</p>
+    <div class="rps">
+      <div [ngClass]="'icon ' +computerChoice "></div>
+    </div>
   
-
-
-
-
-  <p>Debug</p>
-  <p>{{l.playerChoices}}</p>
-  <p>{{l.compChoices}}</p>
+    <p>This round was a {{outcome}}</p>
+  
+    <div *ngIf="l.round === 10; else nextRoundBlock">
+      <div class='btn' routerLink="/results" routerLinkActive="active">
+        <p>See results</p>
+      </div>
+    </div>
+  
+    <ng-template #nextRoundBlock>
+      <div class="btn" (click)="nextRound()">
+        <p>Next round</p>
+      </div>
+    </ng-template>
+  </div>
+  
 </div>

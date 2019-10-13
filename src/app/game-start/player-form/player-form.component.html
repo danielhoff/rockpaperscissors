@@ -1,9 +1,9 @@
-<p>player form works!</p>
-  
 
 <div *ngIf="gameLogic | async as l">
-  <h2>{{l.name}}</h2>
+  <p>Please enter your name to begin</p>
 
-  <input [(ngModel)]="name">
-  <button (click)="editName()">Change name</button>
+  <input placeholder="Enter your name here" [(ngModel)]="name">
+  <div (click)="editName()" class="btn">
+    <p>Play game!</p>
+  </div>
 </div>

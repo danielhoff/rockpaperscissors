@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -15,17 +16,18 @@ interface GameLogicState {
   templateUrl: './player-form.component.html',
   styleUrls: ['./player-form.component.scss']
 })
-export class PlayerFormComponent {
+export class PlayerFormComponent implements OnInit {
 
   gameLogic: Observable<GameLogic>;
   name: string;
 
-  constructor(private store: Store<GameLogicState>) {
+  constructor(private store: Store<GameLogicState>, private router: Router) {
     this.gameLogic = this.store.select('gameLogic');
   }
 
   editName() {
     this.store.dispatch(new GameLogicActions.PlayerName(this.name));
+    this.router.navigateByUrl('/game');
   }
 
 }

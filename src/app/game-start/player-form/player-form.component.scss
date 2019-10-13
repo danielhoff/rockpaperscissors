@@ -1,0 +1,24 @@
+input {
+  width: 100%;
+  height: 6rem;
+  border: 0;
+  background:#FCFCFC;
+  font-size: 5rem;
+  outline: none;
+  color: #bbbbbb;
+
+  &::-webkit-input-placeholder { 
+    color: #bbbbbb;
+  }
+
+  ::-moz-placeholder { 
+    color: #bbbbbb;
+  }
+  :-ms-input-placeholder { 
+    color: #bbbbbb;
+  }
+}
+
+.btn {
+  margin-top: 1rem;
+}

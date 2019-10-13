@@ -1,0 +1,45 @@
+h2, h3 {
+  text-align: center;
+}
+
+div.flex {
+  display: flex;
+
+  .player, .result, .computer {
+    flex: 0 1 auto;
+  }
+
+  .player, .computer {
+    flex-basis: 40%;
+
+    .rps {
+      width: 100%;
+
+      .icon {
+        width: 5rem;
+        height: 5rem;
+        margin: 0 auto;
+      }
+    }
+
+    
+  }
+
+  .result {
+    flex-basis: 20%;
+
+    p {
+      top: 50%;
+      position: relative;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.break {
+  height: 2px;
+  width: 100%;
+  background-color: #EEEEEE;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

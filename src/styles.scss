@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+// import font
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+  font-size: 62.5%;
+}
+
+h1,h2,h3,p,a,button,span {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+H2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+#container {
+  padding: 0 5rem;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #0C96FF;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+  
+  p {
+    color: white;
+  }
+}
+
+.icon {
+  width: 4rem;
+  height: 4rem;
+
+  &.rock {
+    background-image: url('src/assets/rock.svg');
+  }
+
+  &.paper {
+    background-image: url('src/assets/paper.svg');
+  }
+
+  &.scissors {
+    background-image: url('src/assets/scissors.svg');
+  }
+}

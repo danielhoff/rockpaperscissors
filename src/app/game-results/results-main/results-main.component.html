@@ -1,7 +1,41 @@
-<p>results-main works!</p>
 <div *ngIf="gameLogic | async as l">
-  {{l.round}}
+
+  <div *ngIf="l.playerScore > l.compScore; else determineWinnerBlock">
+    <h2>Congratulations {{l.playerName}}! You Win</h2>
+  </div>
+
+  <ng-template #determineWinnerBlock>
+    <div *ngIf="l.playerScore < l.compScore; else drawBlock">
+      <h2>Commiserations {{l.playerName}}, You lose</h2>
+    </div>
+  </ng-template>
+
+  <ng-template #drawBlock>
+    <h2>Unlucky {{l.playerName}}, You drew!</h2>
+  </ng-template>
+  
+  <h3>{{l.playerScore}} - {{l.compScore}}</h3>
+
   <div *ngFor="let choice of l.playerChoices; let i = index">
-    {{i}}
+    <p>Round {{i + 1}}</p>
+    <div class="flex">
+      <div class="player">
+          <p>Player chose: {{choice}}</p>
+          <div class="rps">
+            <div [ngClass]="'icon ' +choice "></div>
+          </div>
+        </div>
+        <div class="result">
+            <p>Result: {{l.results[i]}}</p>
+        </div>
+        <div class="computer">
+          <p>Computer chose: {{l.compChoices[i]}}</p>
+          <div class="rps">
+            <div [ngClass]="'icon ' +l.compChoices[i] "></div>
+          </div>
+        </div>
+    </div>
+
+    <div class="break"></div>
   </div>
 </div>
